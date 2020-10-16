@@ -1,22 +1,22 @@
 class TransactionController {
     
-    private _inputDate;
-    private _inputQuantity;
-    private _inputUnitPrice;
+    private _inputDate: HTMLInputElement;
+    private _inputQuantity: HTMLInputElement;
+    private _inputUnitPrice: HTMLInputElement;
 
     constructor() {
-        this._inputDate = document.querySelector('#purchaseDate');
-        this._inputQuantity = document.querySelector('#quantity');
-        this._inputUnitPrice = document.querySelector('#unitPrice');
+        this._inputDate = <HTMLInputElement>document.querySelector('#purchaseDate');
+        this._inputQuantity = <HTMLInputElement>document.querySelector('#quantity');
+        this._inputUnitPrice = <HTMLInputElement>document.querySelector('#unitPrice');
     }
 
-    add(event) {
+    add(event: Event) {
         event.preventDefault();
 
         const transaction = new Transaction(
-            this._inputDate.value,
-            this._inputQuantity.value,
-            this._inputUnitPrice.value);
+            new Date(this._inputDate.value.replace(/-/g, ',')),
+            parseInt(this._inputQuantity.value),
+            parseFloat(this._inputUnitPrice.value));
 
         console.log(transaction);
     }

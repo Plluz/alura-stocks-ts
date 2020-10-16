@@ -1,14 +1,9 @@
 class Transaction {
 
-    private _date;
-    private _quantity;
-    private _unitPrice;
-
-    constructor (date, quantity, unitPrice){
-        this._date = date;
-        this._quantity = quantity;
-        this._unitPrice = unitPrice;
-    }
+    constructor (
+        private _date: Date,
+        private _quantity: number,
+        private _unitPrice: number) {}
 
     get date() {
         return this._date;
