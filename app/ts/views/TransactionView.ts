@@ -6,23 +6,33 @@ class TransactionView {
         this._element = document.querySelector(selector);
     }
 
-    update(): void {
-        this._element.innerHTML = this.template();
+    update(model: TransactionHistory): void {
+        this._element.innerHTML = this.template(model);
     }
 
-    template(): string {
+    template(model: TransactionHistory): string {
         return `
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
-                    <th>DATA</th>
-                    <th>QUANTIDADE</th>
-                    <th>VALOR</th>
+                    <th>DATE</th>
+                    <th>QUANTITY</th>
+                    <th>UNIT PRICE</th>
                     <th>VOLUME</th>
                 </tr>
             </thead>
 
             <tbody>
+                ${model.toArray().map(transaction => 
+                    `
+                    <tr>
+                        <td>${transaction.date}</td>
+                        <td>${transaction.quantity}</td>
+                        <td>R\$ ${transaction.unitPrice}</td>
+                        <td>${transaction.volume}</td>
+                    </tr>
+                    `
+                ).join('')}
             </tbody>
 
             <tfoot>

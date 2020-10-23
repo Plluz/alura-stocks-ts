@@ -1,6 +1,6 @@
 class TransactionHistory {
     
-    private _transactions: Transaction[];
+    private _transactions: Transaction[] = [];
 
     add(transaction: Transaction): void {
         this._transactions.push(transaction);
