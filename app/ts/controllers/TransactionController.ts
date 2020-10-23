@@ -3,11 +3,14 @@ class TransactionController {
     private _inputDate: HTMLInputElement;
     private _inputQuantity: HTMLInputElement;
     private _inputUnitPrice: HTMLInputElement;
+    private _transactionHistory = new TransactionHistory();
+    private _transactionView = new TransactionView('#transactionsView');
 
     constructor() {
         this._inputDate = <HTMLInputElement>document.querySelector('#purchaseDate');
         this._inputQuantity = <HTMLInputElement>document.querySelector('#quantity');
         this._inputUnitPrice = <HTMLInputElement>document.querySelector('#unitPrice');
+        this._transactionView.update();
     }
 
     add(event: Event) {
@@ -18,6 +21,6 @@ class TransactionController {
             parseInt(this._inputQuantity.value),
             parseFloat(this._inputUnitPrice.value));
 
-        console.log(transaction);
+        this._transactionHistory.add(transaction);
     }
 } 
