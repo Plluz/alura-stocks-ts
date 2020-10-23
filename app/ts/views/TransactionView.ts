@@ -26,10 +26,10 @@ class TransactionView {
                 ${model.toArray().map(transaction => 
                     `
                     <tr>
-                        <td>${transaction.date}</td>
-                        <td>${transaction.quantity}</td>
-                        <td>R\$ ${transaction.unitPrice}</td>
-                        <td>${transaction.volume}</td>
+                        <td>${transaction.date.getDate()}/${transaction.date.getMonth()}/${transaction.date.getFullYear()}</td>
+                        <td>${transaction.quantity.toFixed(2)}</td>
+                        <td>\$ ${transaction.unitPrice.toFixed(2)}</td>
+                        <td>${transaction.volume.toFixed(2)}</td>
                     </tr>
                     `
                 ).join('')}
