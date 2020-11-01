@@ -5,6 +5,7 @@ class TransactionController {
     private _inputUnitPrice: HTMLInputElement;
     private _transactionHistory = new TransactionHistory();
     private _transactionView = new TransactionView('#transactionsView');
+    private _messageView = new MessageView('#messageView');
 
     constructor() {
         this._inputDate = <HTMLInputElement>document.querySelector('#purchaseDate');
@@ -23,5 +24,6 @@ class TransactionController {
 
         this._transactionHistory.add(transaction);
         this._transactionView.update(this._transactionHistory);
+        this._messageView.update();
     }
-} 
+}
