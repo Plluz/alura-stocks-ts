@@ -24,6 +24,6 @@ class TransactionController {
 
         this._transactionHistory.add(transaction);
         this._transactionView.update(this._transactionHistory);
-        this._messageView.update();
+        this._messageView.update("New transaction added!");
     }
 }

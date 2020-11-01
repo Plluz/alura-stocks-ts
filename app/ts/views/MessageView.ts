@@ -1,10 +1,6 @@
-class MessageView extends View {
+class MessageView extends View<string> {
 
-    update(): void {
-        this._element.innerHTML = this.template();
-    }
-
-    template(): string {
-        return `<p class="alert alert-success">New transaction added!</p>`
+    template(model: string): string {
+        return `<p class="alert alert-success">${model}</p>`
     }
 }

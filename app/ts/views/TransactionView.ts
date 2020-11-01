@@ -1,8 +1,4 @@
-class TransactionView extends View {
-
-    update(model: TransactionHistory): void {
-        this._element.innerHTML = this.template(model);
-    }
+class TransactionView extends View<TransactionHistory> {
 
     template(model: TransactionHistory): string {
         return `
